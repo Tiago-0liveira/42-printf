@@ -12,7 +12,7 @@
 
 NAME = libftprintf.a
 LIB_NAME = libft.a
-LIB_PATH = ./libft/
+LIB_PATH = libft/
 
 SOURCES = ft_printf.c is_flag.c execute_flag.c ft_putunsigned_nbr.c
 
@@ -23,15 +23,18 @@ CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS) $(LIB_PATH)$(LIB_NAME)
-	$(AR) rcs $@ $(OBJECTS)
-	$(AR) q $@ $(LIB_PATH)$(LIB_NAME)
+$(NAME): $(OBJECTS) $(LIB_NAME)
+	@echo ads
+	$(CC) -o $(NAME) -L$(LIB_PATH) -lft $(OBJECTS)
+	@echo asod
 
 %.o: %.c
 	$(CC) -c $(CFLAGS) $< -o $@
 
-$(LIB_PATH)$(LIB_NAME):
+$(LIB_NAME):
+	$(info ****compiling $@ ****)
 	$(MAKE) -C $(LIB_PATH) all clean
+	$(info ***  compiled  ***)
 
 clean:
 	$(MAKE) -C $(LIB_PATH) clean
