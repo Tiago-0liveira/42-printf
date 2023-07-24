@@ -11,38 +11,40 @@
 # **************************************************************************** #
 
 NAME = libftprintf.a
-LIB_NAME = libft.a
-LIB_PATH = libft/
 
-SOURCES = ft_printf.c is_flag.c execute_flag.c ft_putunsigned_nbr.c
+SOURCES = ft_printf.c execute_flag.c ft_putunsigned_nbr.c ft_putchar.c ft_puthexa.c ft_putnbr.c ft_putstr.c ft_putptr.c
 
 OBJECTS = $(SOURCES:.c=.o)
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
+AR = ar rcs
+TEST_FILE = test.c
+TEST_OUT = test.out
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS) $(LIB_NAME)
-	@echo ads
-	$(CC) -o $(NAME) -L$(LIB_PATH) -lft $(OBJECTS)
-	@echo asod
+$(NAME): $(OBJECTS)
+	$(AR) $(NAME) $(OBJECTS)
 
 %.o: %.c
 	$(CC) -c $(CFLAGS) $< -o $@
 
-$(LIB_NAME):
-	$(info ****compiling $@ ****)
-	$(MAKE) -C $(LIB_PATH) all clean
-	$(info ***  compiled  ***)
-
 clean:
-	$(MAKE) -C $(LIB_PATH) clean
 	rm -f $(OBJECTS)
 
-fclean: clean
-	$(MAKE) -C $(LIB_PATH) fclean
+fclean: clean clean_test
 	rm -f $(NAME)
+
+compile_test: $(NAME)
+	$(CC) $(CFLAGS) $(TEST_FILE) $(NAME) -o $(TEST_OUT)
+	./$(TEST_OUT)
+
+clean_test:
+	rm -f $(TEST_OUT)
+
+test: all compile_test fclean
+
 
 re: fclean all
 

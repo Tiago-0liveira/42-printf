@@ -12,29 +12,22 @@
 
 #include "ft_printf.h"
 
-int	execute_flag(char s, va_list args)
+int	execute_flag(int s, va_list args)
 {
-	/*int				i;
-	char			*l;
-	unsigned int	n;*/
-
 	if (s == 'c')
-		ft_putchar_fd(va_arg(args, int), STDOUT_FILENO);
+		return (ft_putchar(va_arg(args, int)));
 	else if (s == 's')
-		ft_putstr_fd(va_arg(args, char *), STDOUT_FILENO);
+		return (ft_putstr(va_arg(args, char *)));
 	else if (s == 'p')
-		ft_putnbr_fd(va_arg(args, int), STDOUT_FILENO);
+		return (ft_printptr(va_arg(args, unsigned long long)));
 	else if (s == 'd' || s == 'i')
-		ft_putnbr_fd(va_arg(args, int), STDOUT_FILENO);
+		return (ft_printnbr(va_arg(args, int)));
 	else if (s == 'u')
-		ft_putnbr_fd(va_arg(args, unsigned int), STDOUT_FILENO);
-	else if (s == 'x')
-		ft_putnbr_fd(va_arg(args, unsigned int), STDOUT_FILENO);
-	else if (s == 'X')
-		ft_putnbr_fd(va_arg(args, unsigned int), STDOUT_FILENO);
+		return (ft_putunsigned_nbr(va_arg(args, unsigned int)));
+	else if (s == 'x' || s == 'X')
+		return (ft_printhexa(va_arg(args, unsigned int), s));
 	else if (s == '%')
-		ft_putchar_fd('%', STDOUT_FILENO);
+		return (ft_putchar('%'));
 	else
-		ft_putchar_fd(s, STDOUT_FILENO);
-	return (1);
+		return (ft_putchar(s));
 }

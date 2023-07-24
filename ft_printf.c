@@ -15,22 +15,17 @@
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
-	char	last_char;
 	int		i;
 
 	va_start(args, format);
 	i = 0;
 	while (*format)
 	{
-		if (is_flag(last_char, *format))
-			i += execute_flag(*format, args);
-		else if (*format != '%')
-		{
-			ft_putchar_fd(*format, STDOUT_FILENO);
-			i++;
-		}
-		last_char = *format++;
+		if (*format == '%')
+			format++;
+		i += execute_flag(*format, args);
+		format++;
 	}
 	va_end(args);
-	return (0);
+	return (i);
 }

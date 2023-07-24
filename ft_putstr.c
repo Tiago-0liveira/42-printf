@@ -1,39 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putunsigned_nbr.c                               :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tiagoliv <tiagoliv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/25 13:40:07 by tiagoliv          #+#    #+#             */
-/*   Updated: 2023/05/25 13:58:34 by tiagoliv         ###   ########.fr       */
+/*   Created: 2023/07/22 15:50:48 by tiagoliv          #+#    #+#             */
+/*   Updated: 2023/07/22 20:46:25 by tiagoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_num_len(unsigned	int num)
-{
-	int	len;
-
-	len = 0;
-	if (num == 0)
-		return (1);
-	while (num != 0)
-	{
-		len++;
-		num = num / 10;
-	}
-	return (len);
-}
-
-int	ft_putunsigned_nbr(unsigned int n)
+int	ft_putstr(char *str)
 {
 	int	i;
 
-	i = ft_num_len(n);
-	if (n >= 10)
-		ft_putunsigned_nbr(n / 10);
-	ft_putchar(n % 10 + '0');
+	if (str == NULL)
+		return (ft_putstr("(null)"));
+	i = 0;
+	while (*str)
+	{
+		ft_putchar(*str++);
+		i++;
+	}
 	return (i);
 }
