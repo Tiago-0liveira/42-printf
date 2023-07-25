@@ -23,7 +23,7 @@ int	num_len(int n)
 	{
 		i++;
 		n *= -1;
-	}	
+	}
 	while (n > 9)
 	{
 		n = n / 10;
