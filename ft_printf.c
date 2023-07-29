@@ -22,9 +22,9 @@ int	ft_printf(const char *format, ...)
 	while (*format)
 	{
 		if (*format == '%')
-			format++;
-		i += execute_flag(*format, args);
-		format++;
+			i += execute_flag(*(++format), args);
+		else
+			ft_putchar(*format++);
 	}
 	va_end(args);
 	return (i);
