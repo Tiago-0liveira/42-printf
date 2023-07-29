@@ -24,7 +24,8 @@ int	ft_printf(const char *format, ...)
 		if (*format == '%')
 			i += execute_flag(*(++format), args);
 		else
-			ft_putchar(*format++);
+			ft_putchar(*format);
+		format++;
 	}
 	va_end(args);
 	return (i);
