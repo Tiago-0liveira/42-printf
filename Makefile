@@ -16,7 +16,7 @@ SOURCES = ft_printf.c execute_flag.c ft_putunsigned_nbr.c ft_putchar.c ft_puthex
 
 OBJECTS = $(SOURCES:.c=.o)
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 TEST_FILE = test.c
