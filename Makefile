@@ -12,7 +12,7 @@
 
 NAME = libftprintf.a
 
-SOURCES = ft_printf.c execute_flag.c ft_putunsigned_nbr.c ft_putchar.c ft_puthexa.c ft_putnbr.c ft_putstr.c ft_putptr.c
+SOURCES = ft_printf.c execute_flag.c ft_putunsigned_nbr.c ft_putchar.c ft_puthexa.c ft_putnbr.c ft_putstr.c ft_putptr.c ft_printlong.c
 
 OBJECTS = $(SOURCES:.c=.o)
 

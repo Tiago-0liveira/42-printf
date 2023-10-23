@@ -20,6 +20,8 @@ int	execute_flag(int s, va_list args)
 		return (ft_putstr(va_arg(args, char *)));
 	else if (s == 'p')
 		return (ft_printptr(va_arg(args, unsigned long long)));
+	else if (s == 'l')
+		return (ft_printlong(va_arg(args, unsigned long)));
 	else if (s == 'd' || s == 'i')
 		return (ft_printnbr(va_arg(args, int)));
 	else if (s == 'u')
