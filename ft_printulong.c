@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printlong.c                                     :+:      :+:    :+:   */
+/*   ft_printulong.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tiagoliv <tiagoliv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 16:07:51 by tiagoliv          #+#    #+#             */
-/*   Updated: 2023/10/22 16:24:40 by tiagoliv         ###   ########.fr       */
+/*   Updated: 2023/10/25 17:17:17 by tiagoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printlong(unsigned long num)
+int	ft_printulong(unsigned long num)
 {
 	char	buffer[21];
 	char	reversed_buffer[21];

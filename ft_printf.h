@@ -29,7 +29,7 @@ int		ft_putchar(int c);
 int		ft_putstr(char *str);
 void	ft_putptr(unsigned long long ptr);
 int		ft_printptr(unsigned long long ptr);
-int		ft_printlong(unsigned long num);
+int		ft_printulong(unsigned long num);
 int		num_len(int n);
 
 #endif
